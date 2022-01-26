@@ -1,0 +1,22 @@
+{
+  "name": "exchange-rate-webapp",
+  "version": "1.0.0",
+  "description": "Webapp Exchange Rate para r/argentina programa",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasmpe/exchange-rate-webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasmpe/exchange-rate-webapp/issues"
+  },
+  "homepage": "https://github.com/lucasmpe/exchange-rate-webapp#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
