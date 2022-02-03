@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Exchange Rate</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
-    <link rel='stylesheet' type='text/css' href='css/main.css'>
-    <script defer src='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'></script>
-    <script defer src='src/index.js'></script>
-</head>
-<body>
-    <main>
 
-    </main>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Exchange Rate</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' type='text/css' href='src/css/main.css'>
+  <script defer src='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'></script>
+  <script defer src='src/index.js'></script>
+</head>
+
+<body>
+  <main>
+    <div id="app" class="container">
+      <div class="h-25 p-3">
+        <h1>Exchange Rate</h1>
+      </div>
+      <div class="row g-3 justify-content-sm-center d-flex align-items-center">
+        <div class="col-sm-auto">
+          <select id="base-tabla" class="form-select" aria-label="Default select example">
+            <option selected>Elija una moneda base</option>
+          </select>
+        </div>
+        <div class="col-sm-auto">
+          <button id="generar-tabla" class="btn btn-primary">Generar tabla</button>
+        </div>
+      </div>
+      
+      <div id="tabla" class="invisible">
+        <table class="table table-hover table-sm caption-top">
+          <caption></caption>
+          <thead>
+            <tr>
+              <th scope="col">Moneda</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
 </body>
 </html>
