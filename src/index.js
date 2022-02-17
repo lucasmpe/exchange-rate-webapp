@@ -4,6 +4,7 @@ const BASE_URL = 'https://v6.exchangerate-api.com/v6/';
 const $baseTabla = document.querySelector('#base-tabla');
 const $generarTabla = document.querySelector('#generar-tabla');
 const $tabla = document.querySelector('#tabla');
+const $alerta = document.querySelector('#liveAlertPlaceholder');
 
 async function cargarMonedas() {
     try {
@@ -28,13 +29,30 @@ function listarMonedas() {
 
 function manejarClickGenerarTabla() {
     $generarTabla.onclick = function (e) {
-        const base = $baseTabla.options[$baseTabla.selectedIndex].value;
-        cargarCambios(base).then(data => {
-            crearElementosDeTabla(data);
-            $tabla.classList.remove('invisible');
-        });    
+        $alerta.innerHTML = '';
+        const base = $baseTabla.options[$baseTabla.selectedIndex].value;    //validar que base no sea la opción 'selected'
+        if (baseValida(base)) {
+            cargarCambios(base).then(data => {
+                crearElementosDeTabla(data);
+                $tabla.classList.remove('invisible');
+            });
+        } else {
+            mostrarAlerta('Elija una opción válida');
+        }
         e.preventDefault();
     };
+}
+
+function baseValida(base) {
+    return base !== 'Elija una moneda base';
+}
+
+function mostrarAlerta(message) {
+    // var wrapper = document.createElement('div');
+    $alerta.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + 
+        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+
+    // $alerta.append(wrapper);
 }
 
 async function cargarCambios(base) {
