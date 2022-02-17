@@ -30,7 +30,7 @@ function listarMonedas() {
 function manejarClickGenerarTabla() {
     $generarTabla.onclick = function (e) {
         $alerta.innerHTML = '';
-        const base = $baseTabla.options[$baseTabla.selectedIndex].value;    //validar que base no sea la opción 'selected'
+        const base = $baseTabla.options[$baseTabla.selectedIndex].value;
         if (baseValida(base)) {
             cargarCambios(base).then(data => {
                 crearElementosDeTabla(data);
@@ -48,11 +48,8 @@ function baseValida(base) {
 }
 
 function mostrarAlerta(message) {
-    // var wrapper = document.createElement('div');
     $alerta.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + 
         '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-
-    // $alerta.append(wrapper);
 }
 
 async function cargarCambios(base) {
