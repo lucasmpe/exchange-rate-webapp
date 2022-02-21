@@ -33,7 +33,7 @@ function manejarClickGenerarTabla() {
         const base = $baseTabla.options[$baseTabla.selectedIndex].value;
         if (baseValida(base)) {
             cargarCambios(base).then(data => {
-                crearElementosDeTabla(data);
+                generarTabla(data);
                 $tabla.classList.remove('invisible');
             });
         } else {
@@ -61,7 +61,7 @@ async function cargarCambios(base) {
     }
 }
 
-function crearElementosDeTabla(data) {
+function generarTabla(data) {
     const $caption = $tabla.querySelector('caption');
     const $bodyTabla = $tabla.querySelector('tbody');
 
